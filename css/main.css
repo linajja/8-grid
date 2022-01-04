@@ -13,21 +13,36 @@ body {
 
 body {
     display: grid;
-    grid-template-columns: 250px 1fr 1fr;
-    gap: 60px 20px;
+    grid-template-columns: 1fr 1000px 1fr;
+}
+main {
+    grid-column-start: 2;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 4fr 1fr;
+    grid-template-areas:
+        'header header'
+        'hero ad'
+        'about ad'
+        'service ad'
+        'footer footer';
+}
+header {
+    grid-area: header;
+    background-color: yellow;
+}
+section {
+    background-color: pink;
+}
+aside {
+    background-color: aquamarine;
+
+footer {
+    background-color: forestgreen;
 }
 
-div {
-    padding: 10px;
-    border: 1px solid red;
-}
-
-div:nth-child(1) {
-    background-color: yellow;
-    grid-column: span 2;
-}
-div:nth-child(4) {
-    background-color: yellow;
-    grid-column: span 2;
-    grid-row: span 2;
+@media (min-width: 600px) {
+    body {
+        grid-template-columns: 1fr 500px 1fr;
+    }
 }
